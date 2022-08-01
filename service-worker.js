@@ -1,6 +1,6 @@
 importScripts('https://unpkg.com/@gauntface/logger@3.0.13/build/browser-globals.js');
 
-logger.setPrefix('simple-push-demo/service worker');
+logger.setPrefix('web-push-study/service worker');
 
 self.addEventListener('install', () => {
 	self.skipWaiting();
