@@ -22,9 +22,7 @@ self.addEventListener('push', function (event) {
 	}
 	console.log(options)
 
-	event.waitUntil(
-		self.registration.showNotification(options.title, options),
-	)
+	event.waitUntil(self.registration.showNotification(options.title, options))
 })
 
 self.addEventListener('notificationclick', function (event) {
