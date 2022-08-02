@@ -8,7 +8,7 @@ self.addEventListener('install', () => {
 
 self.addEventListener('push', function (event) {
 	logger.log('Push message received.')
-	const data = {
+	const options = {
 		...{
 			title: 'Hello',
 			body: 'Thanks for sending this push msg.',
@@ -20,10 +20,10 @@ self.addEventListener('push', function (event) {
 			},
 		}, ...event.data.json()
 	}
-	console.log(data)
+	console.log(options)
 
 	event.waitUntil(
-		self.registration.showNotification(data.title, data),
+		self.registration.showNotification(options.title, options),
 	)
 })
 
