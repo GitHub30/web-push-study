@@ -30,6 +30,7 @@ self.addEventListener('push', function (event) {
 self.addEventListener('notificationclick', function (event) {
 	logger.log('Notification clicked.')
 	event.notification.close()
+	console.log(event)
 
 	let clickResponsePromise = Promise.resolve()
 	if (event.notification.data && event.notification.data.url) {
