@@ -27,12 +27,12 @@ self.addEventListener('push', function (event) {
 
 self.addEventListener('notificationclick', function (event) {
 	logger.log('Notification clicked.')
-	event.notification.close()
 	console.log(event)
+	event.notification.close()
 
 	let clickResponsePromise = Promise.resolve()
-	if (event.action && event.notification.data && event.notification.data[event.action]) {
-		clickResponsePromise = clients.openWindow(event.notification.data[event.action])
+	if (event.action) {
+		clickResponsePromise = clients.openWindow(event.action)
 	} else if (event.notification.data && event.notification.data.url) {
 		clickResponsePromise = clients.openWindow(event.notification.data.url)
 	}
